@@ -34,8 +34,15 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: windows
-          path: build/windows
+          name: "ttgrindworks-windows.zip"
+          path: "build/ttgrindworks-windows.zip"
+          if-no-files-found: "error"
+
+      - name: Upload Windows Game to Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload ${{ github.ref_name }} ttgrindworks-windows.zip
 
   export-linux:
     name: Linux Export
@@ -60,8 +67,15 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: linux
-          path: build/linux
+          name: "ttgrindworks-linux.zip"
+          path: "build/ttgrindworks-linux.zip"
+          if-no-files-found: "error"
+
+      - name: Upload Game to Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload ${{ github.ref_name }} ttgrindworks-linux.zip
 
 
   export-mac:
@@ -87,5 +101,12 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: mac
-          path: build/mac
+          name: "ttgrindworks-mac.zip"
+          path: "build/ttgrindworks-mac.zip"
+          if-no-files-found: "error"
+
+      - name: Upload Game to Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload ${{ github.ref_name }} ttgrindworks-mac.zip
