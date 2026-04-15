@@ -1,3 +1,6 @@
+# Note from ThatNerdNoah
+This is a fork of Toontown: The Grindworks in light of the game shutting down. This is being created for archival purposes only - changes to the game are not expected or planned.
+
 # Toontown: The Grindworks
 
 
